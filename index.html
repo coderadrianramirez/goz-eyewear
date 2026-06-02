@@ -35,24 +35,7 @@
 <header class="navbar" role="banner">
   <div class="navbar__inner">
 
-    <!-- Left: Search + hamburger (mobile) -->
-    <nav class="navbar__left" aria-label="Acciones secundarias">
-      <button class="nav-icon-btn nav-search" aria-label="Buscar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </button>
-
-      <!-- Desktop nav links (shown inside left on wide screens) -->
-      <nav class="navbar__links" aria-label="Navegación principal">
-        <a class="navbar__link" href="#coleccion">Colección</a>
-        <a class="navbar__link" href="#sol">Sol</a>
-        <a class="navbar__link" href="#opticos">Ópticos</a>
-        <a class="navbar__link" href="#nosotros">Nosotros</a>
-      </nav>
-    </nav>
-
-    <!-- Center: Logo (SVG real) -->
+    <!-- Logo (izquierda) -->
     <a class="navbar__logo" href="#" aria-label="GÖZ Eyewear — Inicio">
       <svg class="logo-svg" viewBox="0 0 613 222" fill="none" overflow="visible" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GÖZ Eyewear">
         <!-- Ö stroke only (no fill) -->
@@ -68,8 +51,23 @@
       </svg>
     </a>
 
-    <!-- Right: Profile + Cart + Hamburger -->
+    <!-- Right: nav links + iconos -->
     <div class="navbar__right">
+
+      <!-- Desktop nav links -->
+      <nav class="navbar__links" aria-label="Navegación principal">
+        <a class="navbar__link" href="#coleccion">Colección</a>
+        <a class="navbar__link" href="#sol">Sol</a>
+        <a class="navbar__link" href="#opticos">Ópticos</a>
+        <a class="navbar__link" href="#nosotros">Nosotros</a>
+      </nav>
+
+      <button class="nav-icon-btn nav-search" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+
       <button class="nav-icon-btn" aria-label="Mi perfil">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -112,96 +110,24 @@
 <main>
 <section class="hero" aria-label="Campaña principal">
 
-  <!-- LEFT: Text panel (dark) -->
-  <div class="hero__left">
-    <p class="hero__eyebrow" data-reveal>Nueva Colección · 2025</p>
+  <!-- Background image -->
+  <img class="hero__bg" src="assets/images/Background hero.png" alt="" aria-hidden="true" />
 
-    <h1 class="hero__headline" data-reveal data-reveal-delay="1">
-      Ver es
-      <em>un arte.</em>
+  <!-- Right-side content block -->
+  <div class="hero__content" data-reveal>
+    <p class="hero__eyebrow">Colección Solstice — 2025</p>
+    <h1 class="hero__headline">
+      Estilo que<br>
+      <strong>te define.</strong>
     </h1>
-
-    <p class="hero__subline" data-reveal data-reveal-delay="2">
-      Diseñados para quienes exigen más. Cada montura es una obra de
-      artesanía italiana, concebida para durar generaciones.
-    </p>
-
-    <div class="hero__ctas" data-reveal data-reveal-delay="3">
-      <a class="btn-primary" href="#coleccion">
-        Explorar Colección
-        <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true">
-          <line x1="5" y1="12" x2="19" y2="12"/>
-          <polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </a>
-      <a class="btn-ghost" href="#nosotros">Nuestra Historia</a>
-    </div>
+    <p class="hero__sub">Encontrá tus anteojos ideales</p>
+    <a class="hero__cta" href="collection.html">Ver Colección</a>
   </div>
 
-  <!-- RIGHT: Product stage (cream) -->
-  <div class="hero__right" aria-hidden="false">
-    <div class="hero__product-stage" data-reveal data-reveal-delay="2">
-
-      <p class="hero__product-label">Colección Solstice — 2025</p>
-
-      <!-- Glasses illustration -->
-      <div class="hero__glasses-wrap">
-        <div class="hero__dot-grid" aria-hidden="true"></div>
-        <svg viewBox="0 0 520 220" style="width:100%; max-width:480px;" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lentes Arco Dorado — Colección Solstice">
-          <!-- Frame body -->
-          <g stroke="#1a1a1a" stroke-width="1.6" fill="none">
-            <!-- Left lens outer -->
-            <rect x="20" y="45" width="190" height="130" rx="65" fill="rgba(201,168,76,0.06)"/>
-            <!-- Left lens inner -->
-            <rect x="36" y="60" width="158" height="100" rx="50" stroke="rgba(26,26,26,0.15)" stroke-width="0.9"/>
-            <!-- Right lens outer -->
-            <rect x="310" y="45" width="190" height="130" rx="65" fill="rgba(201,168,76,0.06)"/>
-            <!-- Right lens inner -->
-            <rect x="326" y="60" width="158" height="100" rx="50" stroke="rgba(26,26,26,0.15)" stroke-width="0.9"/>
-            <!-- Bridge -->
-            <path d="M210 108 Q260 88 310 108" stroke-width="1.4"/>
-            <!-- Left temple -->
-            <line x1="20" y1="108" x2="-18" y2="115" stroke-width="1.3"/>
-            <!-- Right temple -->
-            <line x1="500" y1="108" x2="538" y2="115" stroke-width="1.3"/>
-            <!-- Hinge marks -->
-            <line x1="20" y1="98" x2="20" y2="118" stroke-width="1.8"/>
-            <line x1="500" y1="98" x2="500" y2="118" stroke-width="1.8"/>
-          </g>
-          <!-- Gold accent on bridge -->
-          <path d="M210 108 Q260 88 310 108" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
-          <!-- Lens reflection glints -->
-          <line x1="58" y1="72" x2="82" y2="88" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linecap="round"/>
-          <line x1="348" y1="72" x2="372" y2="88" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linecap="round"/>
-          <!-- Gold nose pads -->
-          <circle cx="214" cy="114" r="3" fill="#C9A84C" opacity="0.7"/>
-          <circle cx="306" cy="114" r="3" fill="#C9A84C" opacity="0.7"/>
-        </svg>
-      </div>
-
-      <!-- Product name + price -->
-      <div class="hero__product-info">
-        <span class="hero__product-name">Arco Dorado</span>
-        <div class="hero__product-detail">
-          <span class="hero__product-price">$4,200 MXN</span>
-          <span class="hero__product-origin">Hecho en Italia</span>
-        </div>
-      </div>
-
-      <!-- Carousel dots -->
-      <div class="hero__pagination" role="tablist" aria-label="Modelos">
-        <div class="hero__dot is-active" role="tab" aria-selected="true"></div>
-        <div class="hero__dot" role="tab" aria-selected="false"></div>
-        <div class="hero__dot" role="tab" aria-selected="false"></div>
-      </div>
-
-    </div>
-
-    <!-- Scroll hint — right panel, contrasts with cream bg -->
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
+  <!-- Scroll hint -->
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
   </div>
 
 </section>
