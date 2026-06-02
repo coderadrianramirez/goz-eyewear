@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="css/products.css" />
   <link rel="stylesheet" href="css/manifesto.css" />
   <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/product-modal.css" />
 </head>
 
 <body>
@@ -50,10 +52,20 @@
       </nav>
     </nav>
 
-    <!-- Center: Logo -->
-    <a class="navbar__logo" href="#" aria-label="GOZ — Inicio">
-      <span class="navbar__logo-wordmark">GOZ</span>
-      <span class="navbar__logo-sub">Eyewear</span>
+    <!-- Center: Logo (SVG real) -->
+    <a class="navbar__logo" href="#" aria-label="GÖZ Eyewear — Inicio">
+      <svg class="logo-svg" viewBox="0 0 613 222" fill="none" overflow="visible" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GÖZ Eyewear">
+        <!-- Ö stroke only (no fill) -->
+        <path d="M359.16 73.1757C379.041 69.9256 405.885 78.2633 420.96 90.9901C477.267 138.515 443.609 212.696 375.508 220.172C354.745 223.35 328.71 214.857 312.337 202.079C297.764 190.782 288.329 174.121 286.118 155.819C280.73 111.26 317.052 77.9761 359.16 73.1757Z" fill="none" stroke="#C9A84C" stroke-width="16" stroke-linejoin="round"/>
+        <!-- G (gold) -->
+        <path d="M114.864 0.353822C143.341 -1.86088 168.997 6.56384 193.889 18.8399C201.487 22.5872 203.265 15.2457 205.435 9.5733C206.129 23.0648 206.258 53.2 205.331 66.3095C204.07 62.6467 203.324 57.7654 202.383 53.8613C200.242 44.9866 193.838 35.6477 187.379 29.2987C169.761 11.9656 147.044 4.85059 122.712 4.96509C62.0384 5.24981 26.215 56.2897 27.1799 113.667C28.1407 170.834 66.9014 217.835 126.511 215.594C150.499 214.687 169.944 207.291 186.508 189.687C187.011 184.201 187.059 176.761 187.265 171.122C187.366 160.952 188.155 145.258 186.792 135.48C184.564 119.488 163.688 125.646 158.271 121.923L158.539 121.087C161.723 120.405 172.346 120.7 176.284 120.678C191.209 120.584 206.134 120.591 221.059 120.7C223.715 120.715 231.526 120.208 232.974 121.672C230.962 124.048 217.915 122.309 213.712 127.207C206.67 135.412 208.685 148.626 208.739 159.096C208.829 172.187 208.851 185.272 208.806 198.363C199.848 198.553 182.304 208.748 171.678 212.636C158.677 217.326 145.062 220.106 131.261 220.872C89.1715 223.627 45.7762 209.575 20.1298 174.594C8.80282 159.145 1.36641 139.931 0.173028 120.754C-1.47468 91.2082 8.69813 62.2205 28.448 40.1836C50.6275 15.1306 81.8912 2.42219 114.864 0.353822Z" fill="#C9A84C"/>
+        <!-- Z (gold) -->
+        <path d="M490.14 80.8008L606.796 80.9214C591.832 99.691 574.491 124.843 560.114 144.615C544.494 166.1 525.452 191.609 511.124 213.493C528.36 214.074 545.952 213.364 563.219 213.658C569.415 213.762 576.597 213.781 582.702 213.125C586.603 212.74 590.436 211.821 594.085 210.407C606.362 205.582 608.254 197.328 612.87 186.686C612.032 195.056 609.601 207.406 608.241 216.089L607.409 217.356C602.057 218.03 576.689 217.558 569.678 217.552L486.117 217.528C490.905 211.576 496.03 204.143 500.414 197.848C526.707 160.057 556.153 123.361 581.637 85.1151C565.686 85.0453 517.406 82.8716 505.264 87.7449C493.073 92.6366 492.595 101.459 488.138 112.044L487.801 112.825C487.721 103.965 490.048 91.84 490.14 80.8008Z" fill="#C9A84C"/>
+        <!-- Right dot (gold) -->
+        <path d="M392.797 35.7532C404.106 34.8084 410.651 35.7398 404.014 50.0071C401.491 55.44 397.23 59.1598 391.37 60.7922C374.777 59.1947 368.084 39.7571 392.797 35.7532Z" fill="#C9A84C"/>
+        <!-- Left dot (gold) -->
+        <path d="M333.198 35.6804C346.675 34.822 373.004 38.2472 355.908 56.6868C339.547 69.0088 327.95 45.3487 333.198 35.6804Z" fill="#C9A84C"/>
+      </svg>
     </a>
 
     <!-- Right: Profile + Cart + Hamburger -->
@@ -124,12 +136,6 @@
       </a>
       <a class="btn-ghost" href="#nosotros">Nuestra Historia</a>
     </div>
-
-    <!-- Scroll hint -->
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
   </div>
 
   <!-- RIGHT: Product stage (cream) -->
@@ -190,6 +196,12 @@
       </div>
 
     </div>
+
+    <!-- Scroll hint — right panel, contrasts with cream bg -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
   </div>
 
 </section>
@@ -219,36 +231,39 @@
     </div>
 
     <!-- Grid -->
-    <div class="products__grid" aria-label="Productos destacados">
+    <div class="products__grid" aria-label="Productos destacados" id="products-grid">
 
-      <!-- Card 1 -->
-      <article class="product-card" data-category="sol" data-reveal data-reveal-delay="1">
+      <!-- ===================== CARD 1 — Arco Dorado (Hombre) ===================== -->
+      <article class="product-card" data-category="sol" data-gender="male"
+        data-name="Arco Dorado" data-collection="Colección Solstice" data-price="4200"
+        data-desc="Montura oval de acetato italiano con bisagras de barril dorado. Lente polarizado categoría 3. Diseño clásico revisitado para el hombre contemporáneo que no negocia la elegancia."
+        data-material="Acetato italiano" data-lente="Polarizado Cat. 3" data-peso="28g" data-origen="Belluno, Italia"
+        data-colors="#1a1a1a,#C9A84C,#5C4033" data-color-names="Onyx,Gold,Havana"
+        data-reveal data-reveal-delay="1">
         <div class="product-card__img-wrap">
           <span class="product-card__badge">Nuevo</span>
-          <!-- Primary image placeholder -->
           <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
               <g stroke="#2C2C2C" stroke-width="1.4">
                 <rect x="10" y="30" width="120" height="80" rx="40" fill="rgba(44,44,44,0.05)"/>
                 <rect x="170" y="30" width="120" height="80" rx="40" fill="rgba(44,44,44,0.05)"/>
                 <path d="M130 70 Q150 58 170 70" stroke-width="1.2"/>
-                <line x1="10" y1="70" x2="-5" y2="74" stroke-width="1"/>
-                <line x1="290" y1="70" x2="305" y2="74" stroke-width="1"/>
-                <ellipse cx="70" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.2)" stroke-width="0.8"/>
-                <ellipse cx="230" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.2)" stroke-width="0.8"/>
+                <line x1="10" y1="70" x2="-5" y2="74"/><line x1="290" y1="70" x2="305" y2="74"/>
+                <ellipse cx="70" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <ellipse cx="230" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <line x1="28" y1="43" x2="40" y2="52" stroke="rgba(180,180,180,0.55)" stroke-width="0.8"/>
               </g>
             </svg>
           </div>
-          <!-- Hover image placeholder -->
           <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
               <g stroke="#C9A84C" stroke-width="1.4">
-                <rect x="10" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.07)"/>
-                <rect x="170" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.07)"/>
+                <rect x="10" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.08)"/>
+                <rect x="170" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.08)"/>
                 <path d="M130 70 Q150 58 170 70" stroke-width="1.2"/>
-                <line x1="10" y1="70" x2="-5" y2="74" stroke-width="1"/>
-                <line x1="290" y1="70" x2="305" y2="74" stroke-width="1"/>
-                <line x1="30" y1="42" x2="44" y2="52" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+                <line x1="10" y1="70" x2="-5" y2="74"/><line x1="290" y1="70" x2="305" y2="74"/>
+                <circle cx="215" cy="42" r="3" fill="#C9A84C" opacity="0.6"/>
+                <circle cx="85" cy="42" r="3" fill="#C9A84C" opacity="0.6"/>
               </g>
             </svg>
           </div>
@@ -257,12 +272,24 @@
           </button>
         </div>
         <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- King Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Hombre" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 L3,16.5 L10,7 L15.5,14.5 L20,2 L24.5,14.5 L30,7 L37,16.5 L37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="10" cy="7.5" r="2"/><circle cx="30" cy="7.5" r="2"/>
+              <circle cx="3" cy="17" r="1.8"/><circle cx="37" cy="17" r="1.8"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
           <span class="product-card__collection">Colección Solstice</span>
           <h3 class="product-card__name">Arco Dorado</h3>
           <div class="product-card__meta">
             <span class="product-card__price">$4,200 MXN</span>
             <div class="product-card__colors" aria-label="Colores disponibles">
-              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch is-active" style="background:#1a1a1a;" title="Onyx"></span>
               <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
               <span class="color-swatch" style="background:#5C4033;" title="Havana"></span>
             </div>
@@ -271,30 +298,33 @@
         </div>
       </article>
 
-      <!-- Card 2 -->
-      <article class="product-card" data-category="optico" data-reveal data-reveal-delay="2">
+      <!-- ===================== CARD 2 — Meridian Square (Mujer) ===================== -->
+      <article class="product-card" data-category="optico" data-gender="female"
+        data-name="Meridian Square" data-collection="Colección Archive" data-price="3600"
+        data-desc="Montura cuadrada de acetato con acetato bicolor y detalles en metal. Lente oftálmico CR-39. Un clásico arquitectónico reinventado con perspectiva femenina y precisión artesanal."
+        data-material="Acetato bicolor" data-lente="Oftálmico CR-39" data-peso="24g" data-origen="Belluno, Italia"
+        data-colors="#8B7355,#1a1a1a,#E8DCCC" data-color-names="Camel,Onyx,Nude"
+        data-reveal data-reveal-delay="2">
         <div class="product-card__img-wrap">
           <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
               <g stroke="#2C2C2C" stroke-width="1.4">
-                <rect x="20" y="35" width="110" height="70" rx="12" fill="rgba(44,44,44,0.05)"/>
-                <rect x="170" y="35" width="110" height="70" rx="12" fill="rgba(44,44,44,0.05)"/>
+                <rect x="20" y="35" width="110" height="70" rx="10" fill="rgba(44,44,44,0.05)"/>
+                <rect x="170" y="35" width="110" height="70" rx="10" fill="rgba(44,44,44,0.05)"/>
                 <line x1="130" y1="70" x2="170" y2="70" stroke-width="1.2"/>
-                <line x1="20" y1="70" x2="2" y2="74" stroke-width="1"/>
-                <line x1="280" y1="70" x2="298" y2="74" stroke-width="1"/>
-                <rect x="30" y="44" width="90" height="52" rx="8" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
-                <rect x="180" y="44" width="90" height="52" rx="8" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <line x1="20" y1="70" x2="2" y2="74"/><line x1="280" y1="70" x2="298" y2="74"/>
+                <rect x="30" y="44" width="90" height="52" rx="6" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <rect x="180" y="44" width="90" height="52" rx="6" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
               </g>
             </svg>
           </div>
           <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
               <g stroke="#C9A84C" stroke-width="1.4">
-                <rect x="20" y="35" width="110" height="70" rx="12" fill="rgba(201,168,76,0.07)"/>
-                <rect x="170" y="35" width="110" height="70" rx="12" fill="rgba(201,168,76,0.07)"/>
+                <rect x="20" y="35" width="110" height="70" rx="10" fill="rgba(201,168,76,0.08)"/>
+                <rect x="170" y="35" width="110" height="70" rx="10" fill="rgba(201,168,76,0.08)"/>
                 <line x1="130" y1="70" x2="170" y2="70" stroke-width="1.2"/>
-                <line x1="20" y1="70" x2="2" y2="74" stroke-width="1"/>
-                <line x1="280" y1="70" x2="298" y2="74" stroke-width="1"/>
+                <line x1="20" y1="70" x2="2" y2="74"/><line x1="280" y1="70" x2="298" y2="74"/>
               </g>
             </svg>
           </div>
@@ -303,12 +333,209 @@
           </button>
         </div>
         <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- Queen Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Mujer" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 Q3,14 9,9 Q12.5,6.5 15,11 Q17,4 20,2 Q23,4 25,11 Q27.5,6.5 31,9 Q37,14 37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="9" cy="9.5" r="2"/><circle cx="31" cy="9.5" r="2"/>
+              <circle cx="15" cy="11.5" r="1.5"/><circle cx="25" cy="11.5" r="1.5"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
           <span class="product-card__collection">Colección Archive</span>
           <h3 class="product-card__name">Meridian Square</h3>
           <div class="product-card__meta">
             <span class="product-card__price">$3,600 MXN</span>
             <div class="product-card__colors" aria-label="Colores disponibles">
-              <span class="color-swatch" style="background:#8B7355;" title="Camel"></span>
+              <span class="color-swatch is-active" style="background:#8B7355;" title="Camel"></span>
+              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch" style="background:#E8DCCC;" title="Nude"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- ===================== CARD 3 — Aviador Zénith (Hombre) ===================== -->
+      <article class="product-card" data-category="titanio" data-gender="male"
+        data-name="Aviador Zénith" data-collection="Titanio — Edición Limitada" data-price="6800"
+        data-desc="Aviador de titanio aeroespacial grado 5. Ultraligero a 22 gramos. Lente de cristal mineral con tratamiento multicapa anti-reflejo. Solo 250 piezas numeradas en el mundo."
+        data-material="Titanio grado 5" data-lente="Cristal mineral AR" data-peso="22g" data-origen="Sabae, Japón"
+        data-colors="#C9A84C,#B5B5B5,#1a1a1a" data-color-names="Gold,Silver,Gunmetal"
+        data-reveal data-reveal-delay="3">
+        <div class="product-card__img-wrap">
+          <span class="product-card__badge" style="background:var(--color-gold);color:#fff;">Exclusivo</span>
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <ellipse cx="80" cy="70" rx="65" ry="42" fill="rgba(44,44,44,0.05)"/>
+                <ellipse cx="220" cy="70" rx="65" ry="42" fill="rgba(44,44,44,0.05)"/>
+                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73"/><line x1="285" y1="70" x2="302" y2="73"/>
+                <ellipse cx="80" cy="70" rx="48" ry="30" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <ellipse cx="220" cy="70" rx="48" ry="30" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <line x1="38" y1="42" x2="52" y2="52" stroke="rgba(200,200,200,0.6)" stroke-width="0.9"/>
+                <line x1="178" y1="42" x2="192" y2="52" stroke="rgba(200,200,200,0.6)" stroke-width="0.9"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <ellipse cx="80" cy="70" rx="65" ry="42" fill="rgba(201,168,76,0.08)"/>
+                <ellipse cx="220" cy="70" rx="65" ry="42" fill="rgba(201,168,76,0.08)"/>
+                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73"/><line x1="285" y1="70" x2="302" y2="73"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- King Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Hombre" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 L3,16.5 L10,7 L15.5,14.5 L20,2 L24.5,14.5 L30,7 L37,16.5 L37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="10" cy="7.5" r="2"/><circle cx="30" cy="7.5" r="2"/>
+              <circle cx="3" cy="17" r="1.8"/><circle cx="37" cy="17" r="1.8"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Titanio — Ed. Limitada</span>
+          <h3 class="product-card__name">Aviador Zénith</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$6,800 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch is-active" style="background:#C9A84C;" title="Gold"></span>
+              <span class="color-swatch" style="background:#B5B5B5;" title="Silver"></span>
+              <span class="color-swatch" style="background:#1a1a1a;" title="Gunmetal"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- ===================== CARD 4 — Eclipse Oval (Mujer) ===================== -->
+      <article class="product-card" data-category="sol" data-gender="female"
+        data-name="Eclipse Oval" data-collection="Colección Solstice" data-price="3900"
+        data-desc="Montura oval cat-eye en acetato japonés premium. Lente polarizado con tratamiento espejo dorado. La pieza definitiva para quienes dominan cada entrada con gracia e intención."
+        data-material="Acetato japonés" data-lente="Polarizado espejo" data-peso="26g" data-origen="Sabae, Japón"
+        data-colors="#1a1a1a,#5C4033,#C9A84C" data-color-names="Onyx,Havana,Gold"
+        data-reveal data-reveal-delay="4">
+        <div class="product-card__img-wrap">
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <path d="M15 70 Q15 35 75 35 Q135 35 130 70 Q135 105 75 105 Q15 105 15 70Z" fill="rgba(44,44,44,0.05)"/>
+                <path d="M170 70 Q170 35 230 35 Q285 35 285 70 Q285 105 230 105 Q170 105 170 70Z" fill="rgba(44,44,44,0.05)"/>
+                <path d="M130 70 Q150 60 170 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73"/><line x1="285" y1="70" x2="302" y2="73"/>
+                <line x1="30" y1="46" x2="44" y2="56" stroke="rgba(180,180,180,0.55)" stroke-width="0.9"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <path d="M15 70 Q15 35 75 35 Q135 35 130 70 Q135 105 75 105 Q15 105 15 70Z" fill="rgba(201,168,76,0.08)"/>
+                <path d="M170 70 Q170 35 230 35 Q285 35 285 70 Q285 105 230 105 Q170 105 170 70Z" fill="rgba(201,168,76,0.08)"/>
+                <path d="M130 70 Q150 60 170 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73"/><line x1="285" y1="70" x2="302" y2="73"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- Queen Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Mujer" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 Q3,14 9,9 Q12.5,6.5 15,11 Q17,4 20,2 Q23,4 25,11 Q27.5,6.5 31,9 Q37,14 37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="9" cy="9.5" r="2"/><circle cx="31" cy="9.5" r="2"/>
+              <circle cx="15" cy="11.5" r="1.5"/><circle cx="25" cy="11.5" r="1.5"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Colección Solstice</span>
+          <h3 class="product-card__name">Eclipse Oval</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$3,900 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch is-active" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch" style="background:#5C4033;" title="Havana"></span>
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- ===================== CARD 5 — Luna Cat (Mujer) — OCULTA ===================== -->
+      <article class="product-card is-hidden" data-category="sol" data-gender="female"
+        data-name="Luna Cat" data-collection="Colección Noctis" data-price="4500"
+        data-desc="Cat-eye de acetato con punta elevada y detalle dorado en las patillas. Lente degradado polarizado. Diseñado para quien lleva la audacia como segunda piel."
+        data-material="Acetato italiano" data-lente="Degradado polarizado" data-peso="27g" data-origen="Belluno, Italia"
+        data-colors="#2C1810,#C9A84C,#1a1a1a" data-color-names="Tortoise,Gold,Onyx">
+        <div class="product-card__img-wrap">
+          <span class="product-card__badge" style="background:#2C1810;color:#C9A84C;">Noctis</span>
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <!-- Cat-eye left: lower left, higher right -->
+                <path d="M10 80 Q10 40 70 35 Q128 30 128 70 Q128 100 70 105 Q10 108 10 80Z" fill="rgba(44,44,44,0.05)"/>
+                <path d="M172 70 Q172 30 230 35 Q290 40 290 80 Q290 108 230 105 Q172 100 172 70Z" fill="rgba(44,44,44,0.05)"/>
+                <path d="M128 70 Q150 58 172 70" stroke-width="1.2"/>
+                <line x1="10" y1="80" x2="-4" y2="84"/><line x1="290" y1="80" x2="304" y2="84"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <path d="M10 80 Q10 40 70 35 Q128 30 128 70 Q128 100 70 105 Q10 108 10 80Z" fill="rgba(201,168,76,0.08)"/>
+                <path d="M172 70 Q172 30 230 35 Q290 40 290 80 Q290 108 230 105 Q172 100 172 70Z" fill="rgba(201,168,76,0.08)"/>
+                <path d="M128 70 Q150 58 172 70" stroke-width="1.2"/>
+                <line x1="10" y1="80" x2="-4" y2="84"/><line x1="290" y1="80" x2="304" y2="84"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- Queen Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Mujer" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 Q3,14 9,9 Q12.5,6.5 15,11 Q17,4 20,2 Q23,4 25,11 Q27.5,6.5 31,9 Q37,14 37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="9" cy="9.5" r="2"/><circle cx="31" cy="9.5" r="2"/>
+              <circle cx="15" cy="11.5" r="1.5"/><circle cx="25" cy="11.5" r="1.5"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Colección Noctis</span>
+          <h3 class="product-card__name">Luna Cat</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$4,500 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch is-active" style="background:#2C1810;" title="Tortoise"></span>
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
               <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
             </div>
           </div>
@@ -316,32 +543,33 @@
         </div>
       </article>
 
-      <!-- Card 3 -->
-      <article class="product-card" data-category="titanio" data-reveal data-reveal-delay="3">
+      <!-- ===================== CARD 6 — Navigator Pro (Hombre) — OCULTA ===================== -->
+      <article class="product-card is-hidden" data-category="sol" data-gender="male"
+        data-name="Navigator Pro" data-collection="Colección Archive" data-price="5200"
+        data-desc="Piloto de gran formato con lente espejo plano. Montura de acetato grueso con bisagras de titanio. Una declaración de autoridad para el hombre que traza su propio rumbo."
+        data-material="Acetato grueso + titanio" data-lente="Espejo plano Cat. 4" data-peso="32g" data-origen="Belluno, Italia"
+        data-colors="#1a1a1a,#3D2B1F,#B5B5B5" data-color-names="Onyx,Espresso,Silver">
         <div class="product-card__img-wrap">
-          <span class="product-card__badge" style="background:var(--color-gold);color:#fff;">Exclusivo</span>
           <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
-              <g stroke="#2C2C2C" stroke-width="1.4">
-                <ellipse cx="80" cy="70" rx="65" ry="45" fill="rgba(44,44,44,0.05)"/>
-                <ellipse cx="220" cy="70" rx="65" ry="45" fill="rgba(44,44,44,0.05)"/>
-                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
-                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
-                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
-                <ellipse cx="80" cy="70" rx="48" ry="32" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
-                <ellipse cx="220" cy="70" rx="48" ry="32" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
-                <line x1="38" y1="43" x2="50" y2="52" stroke="rgba(200,200,200,0.6)" stroke-width="0.8"/>
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.6">
+                <rect x="8" y="38" width="128" height="64" rx="6" fill="rgba(44,44,44,0.06)"/>
+                <rect x="164" y="38" width="128" height="64" rx="6" fill="rgba(44,44,44,0.06)"/>
+                <line x1="136" y1="70" x2="164" y2="70" stroke-width="1.3"/>
+                <line x1="8" y1="70" x2="-6" y2="73"/><line x1="292" y1="70" x2="306" y2="73"/>
+                <rect x="18" y="48" width="108" height="44" rx="4" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <rect x="174" y="48" width="108" height="44" rx="4" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <line x1="22" y1="52" x2="40" y2="64" stroke="rgba(180,180,180,0.5)" stroke-width="0.9"/>
               </g>
             </svg>
           </div>
           <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
-              <g stroke="#C9A84C" stroke-width="1.4">
-                <ellipse cx="80" cy="70" rx="65" ry="45" fill="rgba(201,168,76,0.07)"/>
-                <ellipse cx="220" cy="70" rx="65" ry="45" fill="rgba(201,168,76,0.07)"/>
-                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
-                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
-                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.6">
+                <rect x="8" y="38" width="128" height="64" rx="6" fill="rgba(201,168,76,0.08)"/>
+                <rect x="164" y="38" width="128" height="64" rx="6" fill="rgba(201,168,76,0.08)"/>
+                <line x1="136" y1="70" x2="164" y2="70" stroke-width="1.3"/>
+                <line x1="8" y1="70" x2="-6" y2="73"/><line x1="292" y1="70" x2="306" y2="73"/>
               </g>
             </svg>
           </div>
@@ -350,12 +578,25 @@
           </button>
         </div>
         <div class="product-card__info">
-          <span class="product-card__collection">Titanio — Edición Limitada</span>
-          <h3 class="product-card__name">Aviador Zénith</h3>
+          <div class="product-card__crown">
+            <!-- King Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Hombre" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 L3,16.5 L10,7 L15.5,14.5 L20,2 L24.5,14.5 L30,7 L37,16.5 L37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="10" cy="7.5" r="2"/><circle cx="30" cy="7.5" r="2"/>
+              <circle cx="3" cy="17" r="1.8"/><circle cx="37" cy="17" r="1.8"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Colección Archive</span>
+          <h3 class="product-card__name">Navigator Pro</h3>
           <div class="product-card__meta">
-            <span class="product-card__price">$6,800 MXN</span>
+            <span class="product-card__price">$5,200 MXN</span>
             <div class="product-card__colors" aria-label="Colores disponibles">
-              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+              <span class="color-swatch is-active" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch" style="background:#3D2B1F;" title="Espresso"></span>
               <span class="color-swatch" style="background:#B5B5B5;" title="Silver"></span>
             </div>
           </div>
@@ -363,29 +604,32 @@
         </div>
       </article>
 
-      <!-- Card 4 -->
-      <article class="product-card" data-category="sol" data-reveal data-reveal-delay="4">
+      <!-- ===================== CARD 7 — Aura Round (Mujer) — OCULTA ===================== -->
+      <article class="product-card is-hidden" data-category="optico" data-gender="female"
+        data-name="Aura Round" data-collection="Colección Noctis" data-price="3200"
+        data-desc="Montura redonda de acetato fino con puente keyhole en metal dorado. Lente oftálmico de alta definición. Delicadeza y precisión para la mujer que define su propio estilo."
+        data-material="Acetato fino + metal" data-lente="Oftálmico HD" data-peso="21g" data-origen="Belluno, Italia"
+        data-colors="#E8DCCC,#C9A84C,#F5C6C6" data-color-names="Nude,Gold,Rosa">
         <div class="product-card__img-wrap">
           <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
               <g stroke="#2C2C2C" stroke-width="1.4">
-                <rect x="15" y="40" width="120" height="60" rx="30" fill="rgba(44,44,44,0.05)"/>
-                <rect x="165" y="40" width="120" height="60" rx="30" fill="rgba(44,44,44,0.05)"/>
-                <path d="M135 70 Q150 60 165 70" stroke-width="1.2"/>
-                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
-                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
-                <line x1="30" y1="50" x2="43" y2="58" stroke="rgba(200,200,200,0.5)" stroke-width="0.8"/>
+                <circle cx="75" cy="70" r="52" fill="rgba(44,44,44,0.05)"/>
+                <circle cx="225" cy="70" r="52" fill="rgba(44,44,44,0.05)"/>
+                <path d="M127 70 Q150 60 173 70" stroke-width="1.2"/>
+                <line x1="23" y1="70" x2="6" y2="73"/><line x1="277" y1="70" x2="294" y2="73"/>
+                <circle cx="75" cy="70" r="38" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
+                <circle cx="225" cy="70" r="38" stroke="rgba(44,44,44,0.15)" stroke-width="0.8"/>
               </g>
             </svg>
           </div>
           <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
-            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
               <g stroke="#C9A84C" stroke-width="1.4">
-                <rect x="15" y="40" width="120" height="60" rx="30" fill="rgba(201,168,76,0.07)"/>
-                <rect x="165" y="40" width="120" height="60" rx="30" fill="rgba(201,168,76,0.07)"/>
-                <path d="M135 70 Q150 60 165 70" stroke-width="1.2"/>
-                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
-                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+                <circle cx="75" cy="70" r="52" fill="rgba(201,168,76,0.08)"/>
+                <circle cx="225" cy="70" r="52" fill="rgba(201,168,76,0.08)"/>
+                <path d="M127 70 Q150 60 173 70" stroke-width="1.2"/>
+                <line x1="23" y1="70" x2="6" y2="73"/><line x1="277" y1="70" x2="294" y2="73"/>
               </g>
             </svg>
           </div>
@@ -394,13 +638,94 @@
           </button>
         </div>
         <div class="product-card__info">
-          <span class="product-card__collection">Colección Solstice</span>
-          <h3 class="product-card__name">Eclipse Oval</h3>
+          <div class="product-card__crown">
+            <!-- Queen Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Mujer" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 Q3,14 9,9 Q12.5,6.5 15,11 Q17,4 20,2 Q23,4 25,11 Q27.5,6.5 31,9 Q37,14 37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="9" cy="9.5" r="2"/><circle cx="31" cy="9.5" r="2"/>
+              <circle cx="15" cy="11.5" r="1.5"/><circle cx="25" cy="11.5" r="1.5"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Colección Noctis</span>
+          <h3 class="product-card__name">Aura Round</h3>
           <div class="product-card__meta">
-            <span class="product-card__price">$3,900 MXN</span>
+            <span class="product-card__price">$3,200 MXN</span>
             <div class="product-card__colors" aria-label="Colores disponibles">
-              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
-              <span class="color-swatch" style="background:#5C4033;" title="Havana"></span>
+              <span class="color-swatch is-active" style="background:#E8DCCC;" title="Nude"></span>
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+              <span class="color-swatch" style="background:#F5C6C6;" title="Rosa"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- ===================== CARD 8 — Dux Classic (Hombre) — OCULTA ===================== -->
+      <article class="product-card is-hidden" data-category="titanio" data-gender="male"
+        data-name="Dux Classic" data-collection="Titanio — Colección Dux" data-price="7500"
+        data-desc="El hombre que usa Dux no sigue tendencias — las define. Titanio beta de elasticidad superior, lente de cristal Zeiss con tratamiento fotocromático. La pieza más técnica de GOZ."
+        data-material="Titanio beta" data-lente="Zeiss fotocromático" data-peso="19g" data-origen="Sabae, Japón"
+        data-colors="#B5B5B5,#1a1a1a,#C9A84C" data-color-names="Silver,Gunmetal,Gold">
+        <div class="product-card__img-wrap">
+          <span class="product-card__badge" style="background:var(--color-ink);color:#C9A84C;">Premium</span>
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.88;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.3">
+                <!-- Slim rectangular titanium -->
+                <rect x="10" y="50" width="128" height="40" rx="4" fill="rgba(44,44,44,0.05)"/>
+                <rect x="162" y="50" width="128" height="40" rx="4" fill="rgba(44,44,44,0.05)"/>
+                <line x1="138" y1="70" x2="162" y2="70" stroke-width="1.1"/>
+                <line x1="10" y1="70" x2="-5" y2="72"/><line x1="290" y1="70" x2="305" y2="72"/>
+                <rect x="18" y="56" width="112" height="28" rx="2" stroke="rgba(44,44,44,0.13)" stroke-width="0.7"/>
+                <rect x="170" y="56" width="112" height="28" rx="2" stroke="rgba(44,44,44,0.13)" stroke-width="0.7"/>
+                <!-- Screw details -->
+                <circle cx="22" cy="59" r="1.5" fill="rgba(44,44,44,0.2)"/>
+                <circle cx="278" cy="59" r="1.5" fill="rgba(44,44,44,0.2)"/>
+                <circle cx="22" cy="81" r="1.5" fill="rgba(44,44,44,0.2)"/>
+                <circle cx="278" cy="81" r="1.5" fill="rgba(44,44,44,0.2)"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:84%;opacity:0.78;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.3">
+                <rect x="10" y="50" width="128" height="40" rx="4" fill="rgba(201,168,76,0.08)"/>
+                <rect x="162" y="50" width="128" height="40" rx="4" fill="rgba(201,168,76,0.08)"/>
+                <line x1="138" y1="70" x2="162" y2="70" stroke-width="1.1"/>
+                <line x1="10" y1="70" x2="-5" y2="72"/><line x1="290" y1="70" x2="305" y2="72"/>
+                <circle cx="22" cy="59" r="1.5" fill="#C9A84C" opacity="0.5"/>
+                <circle cx="278" cy="59" r="1.5" fill="#C9A84C" opacity="0.5"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <div class="product-card__crown">
+            <!-- King Crown -->
+            <svg viewBox="0 0 40 28" fill="#C9A84C" width="22" height="15" aria-label="Colección Hombre" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3,24 L3,16.5 L10,7 L15.5,14.5 L20,2 L24.5,14.5 L30,7 L37,16.5 L37,24 Z"/>
+              <rect x="3" y="22.5" width="34" height="4" rx="1.2"/>
+              <circle cx="20" cy="2" r="2.5"/><circle cx="10" cy="7.5" r="2"/><circle cx="30" cy="7.5" r="2"/>
+              <circle cx="3" cy="17" r="1.8"/><circle cx="37" cy="17" r="1.8"/>
+              <ellipse cx="12" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="20" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+              <ellipse cx="28" cy="24.5" rx="2" ry="1.1" fill="rgba(0,0,0,0.28)"/>
+            </svg>
+          </div>
+          <span class="product-card__collection">Titanio — Colección Dux</span>
+          <h3 class="product-card__name">Dux Classic</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$7,500 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch is-active" style="background:#B5B5B5;" title="Silver"></span>
+              <span class="color-swatch" style="background:#1a1a1a;" title="Gunmetal"></span>
               <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
             </div>
           </div>
@@ -412,12 +737,12 @@
 
     <!-- View all CTA -->
     <div class="products__cta-row" data-reveal>
-      <button class="btn-outlined">
+      <a class="btn-outlined" href="collection.html">
         Ver Colección Completa
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
-      </button>
+      </a>
     </div>
 
   </div>
@@ -521,7 +846,20 @@
 
       <!-- Brand column -->
       <div class="footer__brand">
-        <a class="footer__logo" href="#" aria-label="GOZ — Inicio">GOZ</a>
+        <a class="footer__logo" href="#" aria-label="GÖZ Eyewear — Inicio">
+          <svg class="logo-svg" viewBox="0 0 613 222" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GÖZ Eyewear">
+            <!-- Ö stroke only (no fill) -->
+            <path d="M359.16 73.1757C379.041 69.9256 405.885 78.2633 420.96 90.9901C477.267 138.515 443.609 212.696 375.508 220.172C354.745 223.35 328.71 214.857 312.337 202.079C297.764 190.782 288.329 174.121 286.118 155.819C280.73 111.26 317.052 77.9761 359.16 73.1757Z" fill="none" stroke="#FEFEFE" stroke-width="16" stroke-linejoin="round"/>
+            <!-- G (white) -->
+            <path d="M114.864 0.353822C143.341 -1.86088 168.997 6.56384 193.889 18.8399C201.487 22.5872 203.265 15.2457 205.435 9.5733C206.129 23.0648 206.258 53.2 205.331 66.3095C204.07 62.6467 203.324 57.7654 202.383 53.8613C200.242 44.9866 193.838 35.6477 187.379 29.2987C169.761 11.9656 147.044 4.85059 122.712 4.96509C62.0384 5.24981 26.215 56.2897 27.1799 113.667C28.1407 170.834 66.9014 217.835 126.511 215.594C150.499 214.687 169.944 207.291 186.508 189.687C187.011 184.201 187.059 176.761 187.265 171.122C187.366 160.952 188.155 145.258 186.792 135.48C184.564 119.488 163.688 125.646 158.271 121.923L158.539 121.087C161.723 120.405 172.346 120.7 176.284 120.678C191.209 120.584 206.134 120.591 221.059 120.7C223.715 120.715 231.526 120.208 232.974 121.672C230.962 124.048 217.915 122.309 213.712 127.207C206.67 135.412 208.685 148.626 208.739 159.096C208.829 172.187 208.851 185.272 208.806 198.363C199.848 198.553 182.304 208.748 171.678 212.636C158.677 217.326 145.062 220.106 131.261 220.872C89.1715 223.627 45.7762 209.575 20.1298 174.594C8.80282 159.145 1.36641 139.931 0.173028 120.754C-1.47468 91.2082 8.69813 62.2205 28.448 40.1836C50.6275 15.1306 81.8912 2.42219 114.864 0.353822Z" fill="#FEFEFE"/>
+            <!-- Z (white) -->
+            <path d="M490.14 80.8008L606.796 80.9214C591.832 99.691 574.491 124.843 560.114 144.615C544.494 166.1 525.452 191.609 511.124 213.493C528.36 214.074 545.952 213.364 563.219 213.658C569.415 213.762 576.597 213.781 582.702 213.125C586.603 212.74 590.436 211.821 594.085 210.407C606.362 205.582 608.254 197.328 612.87 186.686C612.032 195.056 609.601 207.406 608.241 216.089L607.409 217.356C602.057 218.03 576.689 217.558 569.678 217.552L486.117 217.528C490.905 211.576 496.03 204.143 500.414 197.848C526.707 160.057 556.153 123.361 581.637 85.1151C565.686 85.0453 517.406 82.8716 505.264 87.7449C493.073 92.6366 492.595 101.459 488.138 112.044L487.801 112.825C487.721 103.965 490.048 91.84 490.14 80.8008Z" fill="#FEFEFE"/>
+            <!-- Right dot (gold) -->
+            <path d="M392.797 35.7532C404.106 34.8084 410.651 35.7398 404.014 50.0071C401.491 55.44 397.23 59.1598 391.37 60.7922C374.777 59.1947 368.084 39.7571 392.797 35.7532Z" fill="#C9A84C"/>
+            <!-- Left dot (gold) -->
+            <path d="M333.198 35.6804C346.675 34.822 373.004 38.2472 355.908 56.6868C339.547 69.0088 327.95 45.3487 333.198 35.6804Z" fill="#C9A84C"/>
+          </svg>
+        </a>
         <p class="footer__tagline">
           Eyewear de autor para quienes perciben la elegancia como un estado de ser, no como una tendencia.
         </p>
@@ -608,6 +946,149 @@
 
   </div>
 </footer>
+
+<!-- ============================================================
+     CART OVERLAY + DRAWER
+     ============================================================ -->
+<!-- ============================================================
+     PRODUCT DETAIL MODAL
+     ============================================================ -->
+<div class="pmodal-backdrop" id="pmodal-backdrop" aria-hidden="true"></div>
+
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-label="Detalle del producto" hidden>
+  <button class="pmodal__close" id="pmodal-close" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+
+  <!-- Visual / left -->
+  <div class="pmodal__visual">
+    <div class="pmodal__img-wrap" id="pmodal-img"></div>
+    <div class="pmodal__thumbs" id="pmodal-thumbs"></div>
+  </div>
+
+  <!-- Info / right -->
+  <div class="pmodal__info" id="pmodal-info">
+    <nav class="pmodal__breadcrumb" aria-label="Ruta de navegación">
+      <a href="#">Inicio</a> <span>/</span>
+      <a href="#coleccion">Colección</a> <span>/</span>
+      <span id="pmodal-breadcrumb-name">—</span>
+    </nav>
+
+    <div class="pmodal__crown-row">
+      <span class="pmodal__crown" id="pmodal-crown"></span>
+      <span class="pmodal__collection" id="pmodal-collection"></span>
+    </div>
+
+    <h2 class="pmodal__name" id="pmodal-name"></h2>
+
+    <div class="pmodal__price-row">
+      <span class="pmodal__price" id="pmodal-price"></span>
+      <span class="pmodal__origin" id="pmodal-origin"></span>
+    </div>
+
+    <div>
+      <span class="pmodal__section-label">Color</span>
+      <div class="pmodal__colors" id="pmodal-colors"></div>
+    </div>
+
+    <p class="pmodal__desc" id="pmodal-desc"></p>
+
+    <dl class="pmodal__specs" id="pmodal-specs"></dl>
+
+    <button class="pmodal__add-btn" id="pmodal-add-btn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Agregar al Carrito
+    </button>
+
+    <button class="pmodal__wish-btn" id="pmodal-wish-btn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Guardar en Favoritos
+    </button>
+
+    <div class="pmodal__guarantee">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Garantía de por vida · Envío gratis en 48 h · Devolución gratuita
+    </div>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+<aside
+  class="cart-drawer"
+  id="cart-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Carrito de compras"
+  hidden
+>
+  <!-- Head -->
+  <div class="cart-drawer__head">
+    <h2 class="cart-drawer__title">
+      Carrito
+      <span class="cart-drawer__count" id="cart-drawer-count">0</span>
+    </h2>
+    <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Body — items or empty state -->
+  <div class="cart-drawer__body" id="cart-body">
+
+    <!-- Empty state (shown when no items) -->
+    <div class="cart-empty" id="cart-empty">
+      <div class="cart-empty__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <p class="cart-empty__title">Tu carrito está vacío</p>
+      <p class="cart-empty__sub">
+        Descubre nuestra colección de lentes<br/>de autor y elige los tuyos.
+      </p>
+      <button class="cart-empty__cta" id="cart-empty-cta">
+        Ver Colección
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Items container (populated by JS) -->
+    <div id="cart-items-list"></div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="cart-drawer__foot" id="cart-foot" style="display:none;">
+    <div class="cart-gold-rule"></div>
+
+    <div class="cart-subtotal">
+      <span class="cart-subtotal__label">Subtotal</span>
+      <span class="cart-subtotal__value" id="cart-total">$0 MXN</span>
+    </div>
+
+    <p class="cart-note">Envío calculado al finalizar la compra · Envío gratis +$3,000 MXN</p>
+
+    <button class="cart-checkout-btn">
+      Proceder al Pago
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+
+    <button class="cart-continue-btn" id="cart-continue-btn">
+      Continuar comprando
+    </button>
+  </div>
+</aside>
 
 <script src="js/main.js" defer></script>
 </body>

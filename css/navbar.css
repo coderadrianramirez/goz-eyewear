@@ -53,33 +53,20 @@
 .navbar__logo {
   justify-self: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
-  line-height: 1;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.navbar__logo:hover { opacity: 0.75; }
+
+.logo-svg {
+  display: block;
+  height: 30px;
+  width: auto;
 }
 
-.navbar__logo-wordmark {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--color-ink);
-  text-transform: uppercase;
-  transition: color var(--dur-fast) var(--ease);
-}
-
-.navbar__logo-sub {
-  font-family: var(--font-sans);
-  font-size: 0.52rem;
-  font-weight: 400;
-  letter-spacing: 0.35em;
-  color: var(--color-muted);
-  text-transform: uppercase;
-}
-
-.navbar__logo:hover .navbar__logo-wordmark {
-  color: var(--color-gold);
+/* Footer inherits logo-svg, bigger */
+.footer__logo .logo-svg {
+  height: 38px;
 }
 
 /* ---- Right: action icons ---- */

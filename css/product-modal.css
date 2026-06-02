@@ -1,0 +1,397 @@
+/* ============================================================
+   GOZ — Product Detail Modal (full-screen overlay)
+   ============================================================ */
+
+/* ---- Overlay backdrop ---- */
+.pmodal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+  transition: background var(--dur-mid) var(--ease);
+}
+.pmodal-backdrop.is-open {
+  background: rgba(0,0,0,0.25);
+  pointer-events: all;
+}
+
+/* ---- Modal panel ---- */
+.pmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 301;
+  background: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: translateY(100%);
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.pmodal.is-open {
+  transform: translateY(0);
+}
+
+/* ---- Close button (top-right) ---- */
+.pmodal__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-8);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.pmodal__close:hover {
+  color: var(--color-ink);
+  transform: rotate(90deg);
+}
+.pmodal__close svg {
+  width: 20px; height: 20px;
+  stroke-width: 1.5; fill: none; stroke: currentColor;
+}
+
+/* ---- Left: Visual / product stage ---- */
+.pmodal__visual {
+  background: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-16);
+}
+
+/* Concentric circle decoration */
+.pmodal__visual::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(500px, 90%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.15);
+  pointer-events: none;
+}
+.pmodal__visual::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(320px, 60%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.10);
+  pointer-events: none;
+}
+
+.pmodal__img-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  animation: floatGlasses 4s ease-in-out infinite;
+}
+
+.pmodal__img-wrap svg {
+  width: 100%;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.12));
+}
+
+.pmodal__zoom-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 1;
+}
+
+.pmodal__zoom-hint svg {
+  width: 14px; height: 14px;
+  stroke-width: 1.5; fill: none; stroke: currentColor;
+}
+
+/* Thumbnail row */
+.pmodal__thumbs {
+  position: absolute;
+  bottom: var(--space-12);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-3);
+  z-index: 1;
+}
+
+.pmodal__thumb {
+  width: 54px;
+  height: 42px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.pmodal__thumb.is-active { border-color: var(--color-gold); }
+.pmodal__thumb svg { width: 44px; opacity: 0.7; }
+
+/* ---- Right: Info ---- */
+.pmodal__info {
+  padding: clamp(var(--space-12), 6vw, var(--space-20)) clamp(var(--space-10), 5vw, var(--space-16));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: clamp(var(--space-16), 8vw, var(--space-24));
+}
+
+/* Breadcrumb */
+.pmodal__breadcrumb {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.pmodal__breadcrumb a {
+  color: var(--color-muted);
+  transition: color var(--dur-fast) var(--ease);
+}
+.pmodal__breadcrumb a:hover { color: var(--color-gold); }
+
+/* Crown + collection */
+.pmodal__crown-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.pmodal__collection {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.pmodal__crown svg {
+  width: 18px; height: 15px;
+  fill: var(--color-gold);
+}
+
+/* Title */
+.pmodal__name {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-4xl));
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+/* Price row */
+.pmodal__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  padding-bottom: var(--space-5);
+}
+
+.pmodal__price {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.pmodal__origin {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Colors */
+.pmodal__section-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.pmodal__colors {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pmodal__color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  outline: 1px solid rgba(0,0,0,0.10);
+  outline-offset: 2px;
+}
+.pmodal__color-swatch:hover { transform: scale(1.12); }
+.pmodal__color-swatch.is-active {
+  border-color: var(--color-gold);
+  outline-color: var(--color-gold);
+}
+
+/* Description */
+.pmodal__desc {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Specs grid */
+.pmodal__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3) var(--space-6);
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  padding-block: var(--space-5);
+}
+
+.pmodal__spec dt {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 2px;
+}
+
+.pmodal__spec dd {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  margin-left: 0;
+}
+
+/* CTA */
+.pmodal__add-btn {
+  width: 100%;
+  padding: var(--space-5);
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  transition:
+    background var(--dur-mid) var(--ease),
+    border-color var(--dur-mid) var(--ease);
+}
+.pmodal__add-btn:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+.pmodal__add-btn svg {
+  width: 16px; height: 16px;
+  stroke-width: 1.5; fill: none; stroke: currentColor;
+}
+
+.pmodal__wish-btn {
+  width: 100%;
+  padding: var(--space-4);
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.pmodal__wish-btn:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.pmodal__wish-btn svg {
+  width: 15px; height: 15px;
+  stroke-width: 1.5; fill: none; stroke: currentColor;
+}
+
+/* Guarantee strip */
+.pmodal__guarantee {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.pmodal__guarantee svg {
+  width: 16px; height: 16px;
+  stroke-width: 1.5; fill: none; stroke: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .pmodal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh 1fr;
+  }
+
+  .pmodal__visual {
+    padding: var(--space-10);
+  }
+
+  .pmodal__info {
+    padding: var(--space-8) var(--space-6);
+    padding-top: var(--space-6);
+  }
+
+  .pmodal__close {
+    top: var(--space-4);
+    right: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .pmodal__specs { grid-template-columns: 1fr; }
+}

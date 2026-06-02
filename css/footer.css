@@ -27,13 +27,8 @@
 }
 
 .footer__logo {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  color: var(--color-white);
-  text-transform: uppercase;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer__tagline {

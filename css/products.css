@@ -286,6 +286,49 @@
   color: var(--color-white);
 }
 
+/* --- Crown badge (gender) --- */
+.product-card__crown {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: var(--space-1);
+  height: 18px;
+}
+
+.crown-icon svg {
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(201,168,76,0.35));
+}
+
+/* --- Hidden extra products --- */
+.product-card.is-hidden {
+  display: none;
+}
+
+.product-card.reveal-extra {
+  animation: cardReveal 0.45s var(--ease-out) both;
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger delays for the revealed cards */
+.product-card.reveal-extra:nth-child(5)  { animation-delay: 0ms; }
+.product-card.reveal-extra:nth-child(6)  { animation-delay: 80ms; }
+.product-card.reveal-extra:nth-child(7)  { animation-delay: 160ms; }
+.product-card.reveal-extra:nth-child(8)  { animation-delay: 240ms; }
+.product-card.reveal-extra:nth-child(9)  { animation-delay: 320ms; }
+.product-card.reveal-extra:nth-child(10) { animation-delay: 400ms; }
+
+/* Clickable card link area */
+.product-card__link {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* --- "View all" CTA row --- */
 .products__cta-row {
   text-align: center;
