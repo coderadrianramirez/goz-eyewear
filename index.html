@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GOZ — Eyewear de lujo. Lentes de sol y oftálmicos para quienes ven el mundo de manera diferente." />
+
+  <title>GOZ — Eyewear de Lujo</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/manifesto.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<header class="navbar" role="banner">
+  <div class="navbar__inner">
+
+    <!-- Left: Search + hamburger (mobile) -->
+    <nav class="navbar__left" aria-label="Acciones secundarias">
+      <button class="nav-icon-btn nav-search" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+
+      <!-- Desktop nav links (shown inside left on wide screens) -->
+      <nav class="navbar__links" aria-label="Navegación principal">
+        <a class="navbar__link" href="#coleccion">Colección</a>
+        <a class="navbar__link" href="#sol">Sol</a>
+        <a class="navbar__link" href="#opticos">Ópticos</a>
+        <a class="navbar__link" href="#nosotros">Nosotros</a>
+      </nav>
+    </nav>
+
+    <!-- Center: Logo -->
+    <a class="navbar__logo" href="#" aria-label="GOZ — Inicio">
+      <span class="navbar__logo-wordmark">GOZ</span>
+      <span class="navbar__logo-sub">Eyewear</span>
+    </a>
+
+    <!-- Right: Profile + Cart + Hamburger -->
+    <div class="navbar__right">
+      <button class="nav-icon-btn" aria-label="Mi perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+
+      <button class="nav-icon-btn nav-cart" aria-label="Carrito de compras, 0 artículos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="nav-badge" aria-live="polite">0</span>
+      </button>
+
+      <button class="navbar__hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-drawer">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<nav class="navbar__drawer" id="mobile-drawer" aria-label="Menú móvil" role="navigation">
+  <a class="drawer-link" href="#coleccion">Colección</a>
+  <a class="drawer-link" href="#sol">Sol</a>
+  <a class="drawer-link" href="#opticos">Ópticos</a>
+  <a class="drawer-link" href="#nosotros">Nosotros</a>
+  <span class="gold-rule" style="opacity:0.4;"></span>
+  <a class="drawer-link" href="#contacto" style="font-size:1.25rem; color: var(--color-muted);">Contacto</a>
+</nav>
+
+
+<!-- ============================================================
+     HERO — Split Layout
+     ============================================================ -->
+<main>
+<section class="hero" aria-label="Campaña principal">
+
+  <!-- LEFT: Text panel (dark) -->
+  <div class="hero__left">
+    <p class="hero__eyebrow" data-reveal>Nueva Colección · 2025</p>
+
+    <h1 class="hero__headline" data-reveal data-reveal-delay="1">
+      Ver es
+      <em>un arte.</em>
+    </h1>
+
+    <p class="hero__subline" data-reveal data-reveal-delay="2">
+      Diseñados para quienes exigen más. Cada montura es una obra de
+      artesanía italiana, concebida para durar generaciones.
+    </p>
+
+    <div class="hero__ctas" data-reveal data-reveal-delay="3">
+      <a class="btn-primary" href="#coleccion">
+        Explorar Colección
+        <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+      <a class="btn-ghost" href="#nosotros">Nuestra Historia</a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Product stage (cream) -->
+  <div class="hero__right" aria-hidden="false">
+    <div class="hero__product-stage" data-reveal data-reveal-delay="2">
+
+      <p class="hero__product-label">Colección Solstice — 2025</p>
+
+      <!-- Glasses illustration -->
+      <div class="hero__glasses-wrap">
+        <div class="hero__dot-grid" aria-hidden="true"></div>
+        <svg viewBox="0 0 520 220" style="width:100%; max-width:480px;" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lentes Arco Dorado — Colección Solstice">
+          <!-- Frame body -->
+          <g stroke="#1a1a1a" stroke-width="1.6" fill="none">
+            <!-- Left lens outer -->
+            <rect x="20" y="45" width="190" height="130" rx="65" fill="rgba(201,168,76,0.06)"/>
+            <!-- Left lens inner -->
+            <rect x="36" y="60" width="158" height="100" rx="50" stroke="rgba(26,26,26,0.15)" stroke-width="0.9"/>
+            <!-- Right lens outer -->
+            <rect x="310" y="45" width="190" height="130" rx="65" fill="rgba(201,168,76,0.06)"/>
+            <!-- Right lens inner -->
+            <rect x="326" y="60" width="158" height="100" rx="50" stroke="rgba(26,26,26,0.15)" stroke-width="0.9"/>
+            <!-- Bridge -->
+            <path d="M210 108 Q260 88 310 108" stroke-width="1.4"/>
+            <!-- Left temple -->
+            <line x1="20" y1="108" x2="-18" y2="115" stroke-width="1.3"/>
+            <!-- Right temple -->
+            <line x1="500" y1="108" x2="538" y2="115" stroke-width="1.3"/>
+            <!-- Hinge marks -->
+            <line x1="20" y1="98" x2="20" y2="118" stroke-width="1.8"/>
+            <line x1="500" y1="98" x2="500" y2="118" stroke-width="1.8"/>
+          </g>
+          <!-- Gold accent on bridge -->
+          <path d="M210 108 Q260 88 310 108" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <!-- Lens reflection glints -->
+          <line x1="58" y1="72" x2="82" y2="88" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="348" y1="72" x2="372" y2="88" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- Gold nose pads -->
+          <circle cx="214" cy="114" r="3" fill="#C9A84C" opacity="0.7"/>
+          <circle cx="306" cy="114" r="3" fill="#C9A84C" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <!-- Product name + price -->
+      <div class="hero__product-info">
+        <span class="hero__product-name">Arco Dorado</span>
+        <div class="hero__product-detail">
+          <span class="hero__product-price">$4,200 MXN</span>
+          <span class="hero__product-origin">Hecho en Italia</span>
+        </div>
+      </div>
+
+      <!-- Carousel dots -->
+      <div class="hero__pagination" role="tablist" aria-label="Modelos">
+        <div class="hero__dot is-active" role="tab" aria-selected="true"></div>
+        <div class="hero__dot" role="tab" aria-selected="false"></div>
+        <div class="hero__dot" role="tab" aria-selected="false"></div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     FEATURED PRODUCTS
+     ============================================================ -->
+<section class="products section" id="coleccion" aria-labelledby="products-title">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header" data-reveal>
+      <p class="section-eyebrow">Colección Destacada</p>
+      <h2 class="section-title" id="products-title">Lentes de Autor</h2>
+      <p class="section-subtitle">
+        Formas que trascienden tendencias. Materiales que el tiempo no desgasta.
+      </p>
+    </div>
+
+    <!-- Filters -->
+    <div class="products__filters" data-reveal data-reveal-delay="1" role="group" aria-label="Filtrar por categoría">
+      <button class="filter-btn is-active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="sol">Sol</button>
+      <button class="filter-btn" data-filter="optico">Ópticos</button>
+      <button class="filter-btn" data-filter="titanio">Titanio</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="products__grid" aria-label="Productos destacados">
+
+      <!-- Card 1 -->
+      <article class="product-card" data-category="sol" data-reveal data-reveal-delay="1">
+        <div class="product-card__img-wrap">
+          <span class="product-card__badge">Nuevo</span>
+          <!-- Primary image placeholder -->
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <rect x="10" y="30" width="120" height="80" rx="40" fill="rgba(44,44,44,0.05)"/>
+                <rect x="170" y="30" width="120" height="80" rx="40" fill="rgba(44,44,44,0.05)"/>
+                <path d="M130 70 Q150 58 170 70" stroke-width="1.2"/>
+                <line x1="10" y1="70" x2="-5" y2="74" stroke-width="1"/>
+                <line x1="290" y1="70" x2="305" y2="74" stroke-width="1"/>
+                <ellipse cx="70" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.2)" stroke-width="0.8"/>
+                <ellipse cx="230" cy="70" rx="38" ry="24" stroke="rgba(44,44,44,0.2)" stroke-width="0.8"/>
+              </g>
+            </svg>
+          </div>
+          <!-- Hover image placeholder -->
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <rect x="10" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.07)"/>
+                <rect x="170" y="30" width="120" height="80" rx="40" fill="rgba(201,168,76,0.07)"/>
+                <path d="M130 70 Q150 58 170 70" stroke-width="1.2"/>
+                <line x1="10" y1="70" x2="-5" y2="74" stroke-width="1"/>
+                <line x1="290" y1="70" x2="305" y2="74" stroke-width="1"/>
+                <line x1="30" y1="42" x2="44" y2="52" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <span class="product-card__collection">Colección Solstice</span>
+          <h3 class="product-card__name">Arco Dorado</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$4,200 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+              <span class="color-swatch" style="background:#5C4033;" title="Havana"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="product-card" data-category="optico" data-reveal data-reveal-delay="2">
+        <div class="product-card__img-wrap">
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <rect x="20" y="35" width="110" height="70" rx="12" fill="rgba(44,44,44,0.05)"/>
+                <rect x="170" y="35" width="110" height="70" rx="12" fill="rgba(44,44,44,0.05)"/>
+                <line x1="130" y1="70" x2="170" y2="70" stroke-width="1.2"/>
+                <line x1="20" y1="70" x2="2" y2="74" stroke-width="1"/>
+                <line x1="280" y1="70" x2="298" y2="74" stroke-width="1"/>
+                <rect x="30" y="44" width="90" height="52" rx="8" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <rect x="180" y="44" width="90" height="52" rx="8" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <rect x="20" y="35" width="110" height="70" rx="12" fill="rgba(201,168,76,0.07)"/>
+                <rect x="170" y="35" width="110" height="70" rx="12" fill="rgba(201,168,76,0.07)"/>
+                <line x1="130" y1="70" x2="170" y2="70" stroke-width="1.2"/>
+                <line x1="20" y1="70" x2="2" y2="74" stroke-width="1"/>
+                <line x1="280" y1="70" x2="298" y2="74" stroke-width="1"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <span class="product-card__collection">Colección Archive</span>
+          <h3 class="product-card__name">Meridian Square</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$3,600 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch" style="background:#8B7355;" title="Camel"></span>
+              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="product-card" data-category="titanio" data-reveal data-reveal-delay="3">
+        <div class="product-card__img-wrap">
+          <span class="product-card__badge" style="background:var(--color-gold);color:#fff;">Exclusivo</span>
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <ellipse cx="80" cy="70" rx="65" ry="45" fill="rgba(44,44,44,0.05)"/>
+                <ellipse cx="220" cy="70" rx="65" ry="45" fill="rgba(44,44,44,0.05)"/>
+                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
+                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+                <ellipse cx="80" cy="70" rx="48" ry="32" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <ellipse cx="220" cy="70" rx="48" ry="32" stroke="rgba(44,44,44,0.18)" stroke-width="0.8"/>
+                <line x1="38" y1="43" x2="50" y2="52" stroke="rgba(200,200,200,0.6)" stroke-width="0.8"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <ellipse cx="80" cy="70" rx="65" ry="45" fill="rgba(201,168,76,0.07)"/>
+                <ellipse cx="220" cy="70" rx="65" ry="45" fill="rgba(201,168,76,0.07)"/>
+                <path d="M145 70 Q150 60 155 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
+                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <span class="product-card__collection">Titanio — Edición Limitada</span>
+          <h3 class="product-card__name">Aviador Zénith</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$6,800 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+              <span class="color-swatch" style="background:#B5B5B5;" title="Silver"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="product-card" data-category="sol" data-reveal data-reveal-delay="4">
+        <div class="product-card__img-wrap">
+          <div class="product-card__img" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.9;" fill="none">
+              <g stroke="#2C2C2C" stroke-width="1.4">
+                <rect x="15" y="40" width="120" height="60" rx="30" fill="rgba(44,44,44,0.05)"/>
+                <rect x="165" y="40" width="120" height="60" rx="30" fill="rgba(44,44,44,0.05)"/>
+                <path d="M135 70 Q150 60 165 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
+                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+                <line x1="30" y1="50" x2="43" y2="58" stroke="rgba(200,200,200,0.5)" stroke-width="0.8"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-card__img-hover" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);">
+            <svg viewBox="0 0 300 140" style="width:82%; opacity:0.75;" fill="none">
+              <g stroke="#C9A84C" stroke-width="1.4">
+                <rect x="15" y="40" width="120" height="60" rx="30" fill="rgba(201,168,76,0.07)"/>
+                <rect x="165" y="40" width="120" height="60" rx="30" fill="rgba(201,168,76,0.07)"/>
+                <path d="M135 70 Q150 60 165 70" stroke-width="1.2"/>
+                <line x1="15" y1="70" x2="-2" y2="73" stroke-width="1"/>
+                <line x1="285" y1="70" x2="302" y2="73" stroke-width="1"/>
+              </g>
+            </svg>
+          </div>
+          <button class="product-card__wish" aria-label="Agregar a favoritos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__info">
+          <span class="product-card__collection">Colección Solstice</span>
+          <h3 class="product-card__name">Eclipse Oval</h3>
+          <div class="product-card__meta">
+            <span class="product-card__price">$3,900 MXN</span>
+            <div class="product-card__colors" aria-label="Colores disponibles">
+              <span class="color-swatch" style="background:#1a1a1a;" title="Onyx"></span>
+              <span class="color-swatch" style="background:#5C4033;" title="Havana"></span>
+              <span class="color-swatch" style="background:#C9A84C;" title="Gold"></span>
+            </div>
+          </div>
+          <button class="product-card__add">Agregar al Carrito</button>
+        </div>
+      </article>
+
+    </div><!-- /grid -->
+
+    <!-- View all CTA -->
+    <div class="products__cta-row" data-reveal>
+      <button class="btn-outlined">
+        Ver Colección Completa
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MANIFESTO / BRAND STORY
+     ============================================================ -->
+<section class="manifesto section" id="nosotros" aria-labelledby="manifesto-title">
+  <div class="container">
+    <div class="manifesto__inner">
+
+      <!-- Decorative icon -->
+      <div class="manifesto__icon" data-reveal aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M18 8v20M8 18h20" stroke="currentColor" stroke-width="0.6"/>
+          <circle cx="18" cy="18" r="5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+      </div>
+
+      <blockquote class="manifesto__quote" data-reveal data-reveal-delay="1" id="manifesto-title">
+        No fabricamos lentes.<br/>
+        Creamos <strong>instrumentos de percepción.</strong>
+      </blockquote>
+
+      <div class="manifesto__rule" data-reveal data-reveal-delay="2" aria-hidden="true">
+        <div class="manifesto__rule-diamond"></div>
+      </div>
+
+      <p class="manifesto__body" data-reveal data-reveal-delay="2">
+        Cada montura GOZ nace en talleres italianos de tercera generación, donde el
+        acetato se curva a mano y el titanio se mecaniza con tolerancias de joyería.
+        No concebimos colecciones estacionales — concebimos objetos que el tiempo
+        convierte en clásicos.
+      </p>
+
+      <a class="manifesto__link" href="#" data-reveal data-reveal-delay="3">
+        Nuestra filosofía
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PILLARS / WHY GOZ
+     ============================================================ -->
+<section class="pillars" aria-label="Por qué elegir GOZ">
+  <div class="container">
+    <div class="pillars__grid">
+
+      <div class="pillar" data-reveal>
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="pillar__title">Artesanía Italiana</h3>
+        <p class="pillar__text">Fabricación manual en talleres de Belluno con más de 80 años de tradición.</p>
+      </div>
+
+      <div class="pillar" data-reveal data-reveal-delay="1">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3 class="pillar__title">Garantía de por Vida</h3>
+        <p class="pillar__text">Cada pieza está respaldada con servicio de mantenimiento y garantía permanente.</p>
+      </div>
+
+      <div class="pillar" data-reveal data-reveal-delay="2">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="pillar__title">Ediciones Limitadas</h3>
+        <p class="pillar__text">Colecciones de producción controlada. Cada número identifica tu pieza.</p>
+      </div>
+
+      <div class="pillar" data-reveal data-reveal-delay="3">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="pillar__title">Envío Express</h3>
+        <p class="pillar__text">Entrega en 48 h con empaque de regalo y servicio de óptica a domicilio.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" id="contacto" aria-label="Pie de página">
+  <div class="container">
+
+    <div class="footer__grid">
+
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a class="footer__logo" href="#" aria-label="GOZ — Inicio">GOZ</a>
+        <p class="footer__tagline">
+          Eyewear de autor para quienes perciben la elegancia como un estado de ser, no como una tendencia.
+        </p>
+        <div class="footer__socials" aria-label="Redes sociales">
+          <a class="social-link" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a class="social-link" href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.265.64 1.265 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.562 0-2.387-1.715-4.054-4.163-4.054-2.838 0-4.503 2.129-4.503 4.33 0 .857.33 1.776.742 2.278a.3.3 0 0 1 .068.284c-.076.315-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446C17.523 22 22 17.523 22 12S17.523 2 12 2z"/></svg>
+          </a>
+          <a class="social-link" href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7a4.85 4.85 0 0 1-1.01-.31z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Colecciones -->
+      <div>
+        <p class="footer__col-title">Colecciones</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="#">Lentes de Sol</a></li>
+          <li><a class="footer__link" href="#">Monturas Ópticas</a></li>
+          <li><a class="footer__link" href="#">Titanio</a></li>
+          <li><a class="footer__link" href="#">Ediciones Limitadas</a></li>
+          <li><a class="footer__link" href="#">Accesorios</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Servicio -->
+      <div>
+        <p class="footer__col-title">Servicio</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="#">Mi Cuenta</a></li>
+          <li><a class="footer__link" href="#">Envíos y Devoluciones</a></li>
+          <li><a class="footer__link" href="#">Garantía</a></li>
+          <li><a class="footer__link" href="#">Guía de Tallas</a></li>
+          <li><a class="footer__link" href="#">Citas en Boutique</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter -->
+      <div>
+        <p class="footer__col-title">Exclusivo para Miembros</p>
+        <ul class="footer__links" style="margin-bottom: var(--space-6);">
+          <li><a class="footer__link" href="#">Nuestra Historia</a></li>
+          <li><a class="footer__link" href="#">Proceso Artesanal</a></li>
+          <li><a class="footer__link" href="#">Prensa</a></li>
+        </ul>
+
+        <div class="footer__newsletter">
+          <label class="footer__newsletter-label" for="newsletter-email">
+            Acceso anticipado a nuevas colecciones
+          </label>
+          <form class="footer__newsletter-form">
+            <input
+              id="newsletter-email"
+              class="footer__newsletter-input"
+              type="email"
+              placeholder="tu@correo.com"
+              autocomplete="email"
+              required
+            />
+            <button class="footer__newsletter-btn" type="submit" aria-label="Suscribirse">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div><!-- /footer__grid -->
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 GOZ Eyewear. Todos los derechos reservados.</p>
+      <div class="footer__bottom-links">
+        <a class="footer__bottom-link" href="#">Privacidad</a>
+        <a class="footer__bottom-link" href="#">Términos</a>
+        <a class="footer__bottom-link" href="#">Cookies</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

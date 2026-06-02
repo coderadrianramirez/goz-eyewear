@@ -1,0 +1,70 @@
+/* ============================================================
+   GOZ — Design Tokens
+   ============================================================ */
+
+:root {
+
+  /* --- Color Palette --- */
+  --color-white:        #FFFFFF;
+  --color-off-white:    #FAFAF8;
+  --color-cream:        #F5F3EE;
+
+  --color-gold:         #C9A84C;   /* warm-neutral gold, not yellow */
+  --color-gold-light:   #D4AF37;   /* accent shimmer */
+  --color-gold-dark:    #A8892A;   /* pressed / deep hover */
+  --color-gold-subtle:  rgba(201,168,76, 0.12); /* background tint */
+
+  --color-ink:          #111111;   /* headings */
+  --color-charcoal:     #2C2C2C;   /* body text */
+  --color-muted:        #6B6B6B;   /* captions, labels */
+  --color-divider:      rgba(201,168,76, 0.25);
+
+  /* --- Typography --- */
+  --font-serif:   'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans:    'Inter', 'Montserrat', system-ui, sans-serif;
+
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  2rem;      /* 32px */
+  --text-4xl:  2.75rem;   /* 44px */
+  --text-5xl:  3.75rem;   /* 60px */
+  --text-6xl:  5rem;      /* 80px */
+
+  /* --- Spacing (8pt grid) --- */
+  --space-1:  0.25rem;   /* 4px  */
+  --space-2:  0.5rem;    /* 8px  */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+
+  /* --- Layout --- */
+  --container-max: 1320px;
+  --container-pad: clamp(1.5rem, 5vw, 4rem);
+  --navbar-h:      72px;
+
+  /* --- Transitions --- */
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast:  150ms;
+  --dur-mid:   280ms;
+  --dur-slow:  500ms;
+
+  /* --- Shadows --- */
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-gold: 0 4px 24px rgba(201,168,76,0.20);
+}
