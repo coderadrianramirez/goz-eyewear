@@ -115,21 +115,39 @@
 
   <!-- Container alineado al navbar -->
   <div class="hero__container container">
-  <div class="hero__content" data-reveal>
-    <p class="hero__eyebrow">Colección Solstice — 2025</p>
-    <h1 class="hero__headline">
-      Estilo que<br>
-      <strong>te define.</strong>
-    </h1>
-    <p class="hero__sub">Encontrá tus anteojos ideales</p>
-    <a class="hero__cta" href="collection.html">Ver Colección</a>
-  </div>
-  </div><!-- /hero__container -->
+    <div class="hero__content">
 
-  <!-- Scroll hint -->
+      <p class="hero__eyebrow">
+        <span class="hero__eyebrow-line"></span>
+        Colección Solstice — 2025
+      </p>
+
+      <h1 class="hero__headline">
+        <span class="hero__line">Estilo que</span>
+        <strong class="hero__line">te define.</strong>
+      </h1>
+
+      <p class="hero__sub">Encontrá tus anteojos ideales</p>
+
+      <a class="hero__cta" href="collection.html">
+        Ver Colección
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="4" y1="10" x2="16" y2="10"/>
+          <polyline points="11 5 16 10 11 15"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
   <div class="hero__scroll" aria-hidden="true">
-    <span>Scroll</span>
+    <span class="hero__scroll-label">Scroll</span>
     <div class="hero__scroll-line"></div>
+    <svg class="hero__scroll-arrow" viewBox="0 0 12 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="6" y1="0" x2="6" y2="14"/>
+      <polyline points="2 10 6 14 10 10"/>
+    </svg>
   </div>
 
 </section>
