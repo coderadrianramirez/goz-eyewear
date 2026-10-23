@@ -23,16 +23,22 @@
   object-position: 30% center;
 }
 
-/* ---- Content block — alineado al container del navbar ---- */
-.hero__content {
+/* ---- Wrapper: extiende .container con flex para alinear el contenido ---- */
+.hero__container {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ---- Content block ---- */
+.hero__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-5);
-  width: min(420px, 38%);
-  margin-right: var(--container-pad);
+  width: min(420px, 42%);
 }
 
 /* ---- Textos ---- */
@@ -130,13 +136,14 @@
     object-position: left center;
   }
 
-  /* Texto full-width pegado al fondo */
+  .hero__container {
+    align-items: flex-end;
+    padding-bottom: var(--space-10);
+    background: linear-gradient(to top, rgba(245,243,238,0.92) 50%, transparent 100%);
+  }
+
   .hero__content {
     width: 100%;
-    margin-right: 0;
-    padding: var(--space-8) var(--container-pad) var(--space-10);
-    /* fondo degradado sutil para legibilidad en mobile */
-    background: linear-gradient(to top, rgba(245,243,238,0.92) 60%, transparent 100%);
   }
 
   .hero__scroll { display: none; }
